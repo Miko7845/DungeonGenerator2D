@@ -8,7 +8,7 @@
  - [x] Floors & Walls
  - [x] Tile Spawner
  - [x] Random Walker Method
- - [ ] Exit Doorway
+ - [x] Exit Doorway
  - [ ] Random Item Spawning
  - [ ] Random Enemy Spawning
 

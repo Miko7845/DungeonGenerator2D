@@ -170,6 +170,7 @@ MonoBehaviour:
   floorPrefab: {fileID: 5631965057720936456, guid: a9d2897e3720a7e48bfa0bf6add10c76, type: 3}
   wallPrefab: {fileID: 2119404862367108567, guid: 1cacc39ff1a7e5e46ad871b463565582, type: 3}
   tilePrefab: {fileID: 5061745175919505563, guid: 16b4fcf587805fc47a813ff401dc3c35, type: 3}
+  exitPrefab: {fileID: 8311880784911514675, guid: 6c1aea059eb0a7c44ad83baf84b2c66e, type: 3}
   totalFloorCount: 500
   minX: 0
   maxX: 0
@@ -201,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8278944841998465247, guid: 645d57b5350cd05428344385073cab8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8278944841998465247, guid: 645d57b5350cd05428344385073cab8d, type: 3}
       propertyPath: m_LocalRotation.w
