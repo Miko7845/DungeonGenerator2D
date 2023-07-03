@@ -5,8 +5,8 @@
  - [x] Player Movement
 
 ### 2. Dungeon Caverns
- - [ ] Floors & Walls
- - [ ] Tile Spawner
+ - [x] Floors & Walls
+ - [x] Tile Spawner
  - [ ] Random Walker Method
  - [ ] Exit Doorway
  - [ ] Random Item Spawning
