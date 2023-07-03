@@ -21,17 +21,25 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    /// <summary>
+    /// Player movement
+    /// </summary>
+    void Move()
+    {
         // return only -1, 0 or 1.
         float horz = System.Math.Sign(Input.GetAxis("Horizontal"));
         float vert = System.Math.Sign(Input.GetAxis("Vertical"));
 
-        if(Mathf.Abs(horz) > 0 || Mathf.Abs(vert) > 0)
+        if (Mathf.Abs(horz) > 0 || Mathf.Abs(vert) > 0)
         {
             if (Mathf.Abs(horz) > 0)
             {
                 GFX.localScale = new Vector2(flipX * horz, GFX.localScale.y);   // flip the sprite according to the input direction
             }
-            if(!isMoving)
+            if (!isMoving)
             {
                 if (Mathf.Abs(horz) > 0)
                 {

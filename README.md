@@ -7,7 +7,7 @@
 ### 2. Dungeon Caverns
  - [x] Floors & Walls
  - [x] Tile Spawner
- - [ ] Random Walker Method
+ - [x] Random Walker Method
  - [ ] Exit Doorway
  - [ ] Random Item Spawning
  - [ ] Random Enemy Spawning
