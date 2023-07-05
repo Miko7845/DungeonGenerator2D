@@ -167,11 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2653aec9828d614f834f8767f88622f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomItems:
+  - {fileID: 2116607392848052217, guid: 6f93b9aa5975834448b64916cfce2e07, type: 3}
+  - {fileID: 3589827900264829778, guid: 134ac367bfd259d46a1398383f723f70, type: 3}
+  - {fileID: 2553044400233974616, guid: 6112e3524b523824a89332c86fe70f5a, type: 3}
+  - {fileID: 385156371468976380, guid: e525df809d7527243bc9c15f0442902b, type: 3}
+  - {fileID: 7170149154662525349, guid: 2e2e72762f1721d48893444047c3bf24, type: 3}
   floorPrefab: {fileID: 5631965057720936456, guid: a9d2897e3720a7e48bfa0bf6add10c76, type: 3}
   wallPrefab: {fileID: 2119404862367108567, guid: 1cacc39ff1a7e5e46ad871b463565582, type: 3}
   tilePrefab: {fileID: 5061745175919505563, guid: 16b4fcf587805fc47a813ff401dc3c35, type: 3}
   exitPrefab: {fileID: 8311880784911514675, guid: 6c1aea059eb0a7c44ad83baf84b2c66e, type: 3}
-  totalFloorCount: 500
+  totalFloorCount: 574
+  itemSpawnPercent: 7
   minX: 0
   maxX: 0
   minY: 0
@@ -184,9 +191,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 551042195531480804, guid: 645d57b5350cd05428344385073cab8d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 551042195531480804, guid: 645d57b5350cd05428344385073cab8d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 251555409
+      objectReference: {fileID: 0}
     - target: {fileID: 2392003447577316981, guid: 645d57b5350cd05428344385073cab8d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392003447577316981, guid: 645d57b5350cd05428344385073cab8d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8278944841998465247, guid: 645d57b5350cd05428344385073cab8d, type: 3}
       propertyPath: m_RootOrder

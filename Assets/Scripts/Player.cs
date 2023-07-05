@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -24,9 +23,7 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    /// <summary>
-    /// Player movement
-    /// </summary>
+    /// <summary> Player movement </summary>
     void Move()
     {
         // return only -1, 0 or 1.
@@ -61,9 +58,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Coroutine to move smoothly to the target position
-    /// </summary>
+    /// <summary> Coroutine to move smoothly to the target position </summary>
     IEnumerator SmoothMove()
     {
         isMoving = true;

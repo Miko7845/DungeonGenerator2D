@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
@@ -12,7 +10,9 @@ public class TileSpawner : MonoBehaviour
         GameObject goFloor = Instantiate(dungMan.floorPrefab, transform.position, Quaternion.identity) as GameObject;
         goFloor.name = dungMan.floorPrefab.name;
         goFloor.transform.SetParent(dungMan.transform);
-        if(transform.position.x > dungMan.maxX)
+
+        // Update the maximum and minimum x and y coordinates.
+        if (transform.position.x > dungMan.maxX)
         {
             dungMan.maxX = transform.position.x;
         }
@@ -34,10 +34,12 @@ public class TileSpawner : MonoBehaviour
     {
         LayerMask envMask = LayerMask.GetMask("Wall", "Floor");
         Vector2 hitSize = Vector2.one * 0.8f;
+
         for(int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
+                // Target position for collision checking.
                 Vector2 targetPos = new Vector2(transform.position.x + x, transform.position.y + y);
                 Collider2D hit = Physics2D.OverlapBox(targetPos, hitSize, 0, envMask);
                 if (!hit)
@@ -52,7 +54,7 @@ public class TileSpawner : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawCube(transform.position, Vector3.one);

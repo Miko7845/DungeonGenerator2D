@@ -9,12 +9,20 @@
  - [x] Tile Spawner
  - [x] Random Walker Method
  - [x] Exit Doorway
- - [ ] Random Item Spawning
+ - [x] Random Item Spawning
  - [ ] Random Enemy Spawning
 
 ### 3. Rounded Edges
+- [ ] Template
+- [ ] Binary Tile Names
+- [ ] Graphic Tileset
+- [ ] Tileset Array
+- [ ] Rounded Edges
   
 ### 4. Rooms & Halls
+- [ ] Reusable Code
+- [ ] Random Halls
+- [ ] Random Rooms
+- [ ] Winding Halls
   
-### 5. Bonus Section
-  
+### 5. 
