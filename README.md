@@ -10,7 +10,7 @@
  - [x] Random Walker Method
  - [x] Exit Doorway
  - [x] Random Item Spawning
- - [ ] Random Enemy Spawning
+ - [x] Random Enemy Spawning
 
 ### 3. Rounded Edges
 - [ ] Template

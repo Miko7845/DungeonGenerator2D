@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DungeonManager : MonoBehaviour
 {
-    public GameObject[] randomItems;
+    public GameObject[] randomItems, randomEnemies;
     public GameObject floorPrefab, wallPrefab, tilePrefab, exitPrefab;
     [Range(50, 5000)] public int totalFloorCount;
     [Range(0, 100)] public int itemSpawnPercent;
+    [Range(0, 100)] public int enemySpawnPercent;
 
     [HideInInspector] public float minX, maxX, minY, maxY;  // Storing the minimum and maximum coordinates of the floor.
 
@@ -102,6 +103,7 @@ public class DungeonManager : MonoBehaviour
 
                         // Call method to create random items.
                         RandomItems(hitFloor, hitTop, hitBottom, hitRight, hitLeft);
+                        RandomEnemies(hitFloor, hitTop, hitBottom, hitRight, hitLeft);
                     }
                 }
             }
@@ -115,13 +117,31 @@ public class DungeonManager : MonoBehaviour
         if ((hitTop || hitBottom ||  hitRight || hitLeft) && !(hitTop && hitBottom) && !(hitLeft && hitRight))
         {
             // If the number rolled is less than or equal to the percentage.
-            int roll = Random.Range(0, 101);
+            int roll = Random.Range(1, 101);
             if (roll <= itemSpawnPercent) 
             {
                 int itemIndex = Random.Range(0, randomItems.Length); // Pick a random item.
                 GameObject goItem = Instantiate(randomItems[itemIndex], hitFloor.transform.position, Quaternion.identity) as GameObject; // Create an item at the floor position.
                 goItem.name = randomItems[itemIndex].name;
                 goItem.transform.SetParent(hitFloor.transform);
+            }
+        }
+    }
+
+    /// <summary> Create random enemy </summary>
+    void RandomEnemies(Collider2D hitFloor, Collider2D hitTop, Collider2D hitBottom, Collider2D hitRight, Collider2D hitLeft)
+    {
+        // If there is no wall next to the floor.
+        if (!hitTop && !hitRight &&  !hitLeft && !hitBottom)
+        {
+            // If the number rolled is less than or equal to the percentage.
+            int roll = Random.Range(1, 101);
+            if (roll <= enemySpawnPercent)
+            {
+                int enemyIndex = Random.Range(0, randomEnemies.Length); // Pick a random enemy.
+                GameObject goEnemy = Instantiate(randomEnemies[enemyIndex], hitFloor.transform.position, Quaternion.identity) as GameObject; // Create an enemy at the floor position.
+                goEnemy.name = randomEnemies[enemyIndex].name;
+                goEnemy.transform.SetParent(hitFloor.transform);
             }
         }
     }
