@@ -179,6 +179,23 @@ MonoBehaviour:
   - {fileID: 7073901571887918235, guid: adc8f846009477044bac778ec334a8cc, type: 3}
   - {fileID: 8500945010135880709, guid: baacf8842745d5248be961726d8823cc, type: 3}
   - {fileID: 570094658055061392, guid: efb4df1d5c2caf147982133f92d6c560, type: 3}
+  roundedEdges:
+  - {fileID: 9006489061897437980, guid: 9e4d4137eb025a840bae652835388dd9, type: 3}
+  - {fileID: 4839168054887315200, guid: 3fb69dbcb43c8dd4880651e9f92a51b8, type: 3}
+  - {fileID: 9186206516938269429, guid: cf9250f8e69f7794fab9e9c66cf6e12a, type: 3}
+  - {fileID: 5819206830520352657, guid: 16debfee51510ab45b43cc555a89aee3, type: 3}
+  - {fileID: 3713242236150956756, guid: e72771121d39c834a8375b7745f1f2c4, type: 3}
+  - {fileID: 5358817276959370378, guid: 217214386ec972143a38564a7fc0fd02, type: 3}
+  - {fileID: 1751308642812012556, guid: 94467f5b6fa4291439ec82cde640ba01, type: 3}
+  - {fileID: 5512180630580719067, guid: bd9b6dd9703fbbe4d9d8243461769490, type: 3}
+  - {fileID: 1190289921007277086, guid: 9c961e9c6423409439d7e9477518e63b, type: 3}
+  - {fileID: 3624702827562866096, guid: 99a57f9fc985f174bb97fb0c84dd7608, type: 3}
+  - {fileID: 837049916481431323, guid: df539ebf9dd72ce449c703511a6d57e0, type: 3}
+  - {fileID: 6042713023515362292, guid: fbdeb892e88c4b24a9b0282ab01aa974, type: 3}
+  - {fileID: 8158995833257424720, guid: 3730871499d9d0b40ac9b92b81e8cb9c, type: 3}
+  - {fileID: 820148298601454375, guid: dc344cceabbd88e41bdb36b339c34272, type: 3}
+  - {fileID: 5365854832502261898, guid: 8b2c32c0775aeb549b6d2b3efa9bae94, type: 3}
+  - {fileID: 2223474088378153952, guid: b2feb1f1e0445654c915170c8f9eff9e, type: 3}
   floorPrefab: {fileID: 5631965057720936456, guid: a9d2897e3720a7e48bfa0bf6add10c76, type: 3}
   wallPrefab: {fileID: 2119404862367108567, guid: 1cacc39ff1a7e5e46ad871b463565582, type: 3}
   tilePrefab: {fileID: 5061745175919505563, guid: 16b4fcf587805fc47a813ff401dc3c35, type: 3}
@@ -186,6 +203,7 @@ MonoBehaviour:
   totalFloorCount: 574
   itemSpawnPercent: 7
   enemySpawnPercent: 20
+  useRoundedEdges: 1
   minX: 0
   maxX: 0
   minY: 0

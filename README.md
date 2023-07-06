@@ -11,18 +11,12 @@
  - [x] Exit Doorway
  - [x] Random Item Spawning
  - [x] Random Enemy Spawning
-
-### 3. Rounded Edges
-- [ ] Template
-- [ ] Binary Tile Names
-- [ ] Graphic Tileset
-- [ ] Tileset Array
-- [ ] Rounded Edges
+ - [x] Rounded Edges
   
-### 4. Rooms & Halls
+### 3. Rooms & Halls
 - [ ] Reusable Code
 - [ ] Random Halls
 - [ ] Random Rooms
 - [ ] Winding Halls
   
-### 5. 
+### 4. 
