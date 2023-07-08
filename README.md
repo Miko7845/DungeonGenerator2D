@@ -14,7 +14,6 @@
  - [x] Rounded Edges
   
 ### 3. Rooms & Halls
-- [ ] Reusable Code
 - [ ] Random Halls
 - [ ] Random Rooms
 - [ ] Winding Halls

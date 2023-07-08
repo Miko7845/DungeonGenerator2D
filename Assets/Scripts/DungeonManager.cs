@@ -43,29 +43,8 @@ public class DungeonManager : MonoBehaviour
 
         while (floorList.Count < totalFloorCount)
         {
-            switch (Random.Range(1, 5))
-            {
-                case 1: curPos += Vector3.up; break;
-                case 2: curPos += Vector3.right; break;
-                case 3: curPos += Vector3.down; break;
-                case 4: curPos += Vector3.left; break;
-            }
-
-            // The loop checks if the new position is free. If there is already a similar
-            // position in the list, it is forbidden to add a new position to the list.
-            bool inFloorList = false;
-            for (int i = 0; i < floorList.Count; i++)
-            {
-                if (Vector3.Equals(curPos, floorList[i]))
-                {
-                    inFloorList = true;
-                    break;
-                }
-            }
-            if (!inFloorList)
-            {
-                floorList.Add(curPos);
-            }
+            curPos += RandomDirection();
+            if (!InFloorList(curPos)) floorList.Add(curPos);
         }
 
         for(int i = 0; i < floorList.Count; i++)
@@ -75,6 +54,27 @@ public class DungeonManager : MonoBehaviour
             goTile.transform.SetParent(transform);
         }
         StartCoroutine(DelayProgress());
+    }
+
+    /// <summary> Check if the new position is free </summary>
+    bool InFloorList(Vector3 myPos)
+    {
+        // If there is already a similar position in the list, it is forbidden to add a new position to the list.
+        for (int i = 0; i < floorList.Count; i++) if (Equals(myPos, floorList[i])) return true;
+        return false;
+    }
+
+    /// <summary> Choose random direction </summary>
+    Vector3 RandomDirection()
+    {
+        switch (Random.Range(1, 5))
+        {
+            case 1: return Vector3.up;
+            case 2: return Vector3.right;
+            case 3: return Vector3.down;
+            case 4: return Vector3.left;
+        }
+        return Vector3.zero;
     }
 
     /// <summary> Coroutine to delay progress </summary>
