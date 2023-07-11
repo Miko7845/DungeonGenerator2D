@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum DungeonType { Caverns, Rooms }
+
 public class DungeonManager : MonoBehaviour
 {
     public GameObject[] randomItems, randomEnemies, roundedEdges;
@@ -11,6 +13,7 @@ public class DungeonManager : MonoBehaviour
     [Range(0, 100)] public int itemSpawnPercent;
     [Range(0, 100)] public int enemySpawnPercent;
     public bool useRoundedEdges;
+    public DungeonType dungeonType;
 
     [HideInInspector] public float minX, maxX, minY, maxY;  // Storing the minimum and maximum coordinates of the floor.
 
@@ -23,7 +26,12 @@ public class DungeonManager : MonoBehaviour
         hitSize = Vector2.one * 0.8f;
         floorMask = LayerMask.GetMask("Floor");
         wallMask = LayerMask.GetMask("Wall");
-        RandomWalker();
+        
+        switch (dungeonType)
+        {
+            case DungeonType.Caverns: RandomWalker(); break;
+            case DungeonType.Rooms:   RoomWalker(); break;
+        }
     }
 
     void Update()
@@ -46,12 +54,23 @@ public class DungeonManager : MonoBehaviour
             curPos += RandomDirection();
             if (!InFloorList(curPos)) floorList.Add(curPos);
         }
+        StartCoroutine(DelayProgress());
+    }
 
-        for(int i = 0; i < floorList.Count; i++)
+    /// <summary>  </summary>
+    void RoomWalker()
+    {
+        // Add a starting point to the list
+        Vector3 curPos = Vector3.zero;
+        floorList.Add(curPos);
+
+        while (floorList.Count < totalFloorCount)
         {
-            GameObject goTile = Instantiate(tilePrefab, floorList[i], Quaternion.identity) as GameObject;
-            goTile.name = tilePrefab.name;
-            goTile.transform.SetParent(transform);
+            Vector3 walkDir = RandomDirection();
+            int walkLength = Random.Range(9, 18);
+
+            curPos += RandomDirection();
+            if (!InFloorList(curPos)) floorList.Add(curPos);
         }
         StartCoroutine(DelayProgress());
     }
@@ -77,9 +96,16 @@ public class DungeonManager : MonoBehaviour
         return Vector3.zero;
     }
 
-    /// <summary> Coroutine to delay progress </summary>
+    /// <summary>  </summary>
     IEnumerator DelayProgress()
     {
+        for (int i = 0; i < floorList.Count; i++)
+        {
+            GameObject goTile = Instantiate(tilePrefab, floorList[i], Quaternion.identity) as GameObject;
+            goTile.name = tilePrefab.name;
+            goTile.transform.SetParent(transform);
+        }
+
         // As long as there are objects of type TileSpawner in the scene
         while (FindObjectsOfType<TileSpawner>().Length > 0)
         {
@@ -114,7 +140,7 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
-    /// <summary>  </summary>
+    /// <summary> Rounds all walls </summary>
     void RoundedEdges(int x, int y)
     {
         if (useRoundedEdges)
@@ -128,6 +154,7 @@ public class DungeonManager : MonoBehaviour
                 Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), hitSize, 0, wallMask);
                 int bitVal = 0;
 
+                // 
                 if (!hitTop) bitVal += 1;
                 if (!hitRight) bitVal += 2;
                 if (!hitBottom) bitVal += 4;
